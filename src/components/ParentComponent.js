@@ -8,17 +8,17 @@ class ParentComponent extends React.Component{
         lastName: "M",
       }
 
-      handleFirstNameChange = event => {
+      handleChange = event => {
         this.setState({
-          firstName: event.target.value
+          [event.target.name]: event.target.value //as long as the name attribute matches the key in state this will work.
         })
       }
     
-      handleLastNameChange = event => {
-        this.setState({
-          lastName: event.target.value
-        })
-      }
+    //   handleLastNameChange = event => {
+    //     this.setState({
+    //       lastName: event.target.value
+    //     })
+    //   }
 
       render(){
           return(
@@ -26,8 +26,8 @@ class ParentComponent extends React.Component{
 
             <Form
             formData={this.state}
-            handleFirstNameChange={this.handleFirstNameChange}
-            handleLastNameChange={this.handleLastNameChange}
+            handleChange={this.handleChange}
+        
             />
           <DisplayData formData={this.state}/>
             </div>
